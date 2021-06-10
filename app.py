@@ -10,7 +10,7 @@ import time
 from flask_swagger_ui import get_swaggerui_blueprint
 from dotenv import load_dotenv
 
-load_dotenv(".env")
+load_dotenv()
 
 
 mydb = mysql.connector.connect(
@@ -162,4 +162,4 @@ def verify():
 
 if __name__ == '__main__':
     app.secret_key = os.getenv("SECRET_KEY")
-    app.run(debug = False,port=os.getenv("PORT"))
+    app.run(debug = False,host=os.getenv("APP_HOST"),port=os.getenv("PORT"))
